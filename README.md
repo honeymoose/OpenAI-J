@@ -27,233 +27,83 @@ The Rets-Io RETS Client - Java is a library used to access data on RETS complian
 
 请关注我们的知乎：https://www.zhihu.com/people/huyuchengus
 
-# Examples
+![Maven Central](https://img.shields.io/maven-central/v/com.theokanning.openai-gpt3-java/client?color=blue)
 
-Simple example of a search:
+> ⚠️The [Answers](https://help.openai.com/en/articles/6233728-answers-transition-guide),
+>[Classifications](https://help.openai.com/en/articles/6272941-classifications-transition-guide),
+>and [Searches](https://help.openai.com/en/articles/6272952-search-transition-guide) APIs are deprecated,
+>and will stop working on December 3rd, 2022.
 
+> ⚠️OpenAI has deprecated all Engine-based APIs. See [Deprecated Endpoints](https://github.com/TheoKanning/openai-java#deprecated-endpoints) below for more info.
+
+# OpenAI-Java
+Java libraries for using OpenAI's GPT-3 api.
+
+Includes the following artifacts:
+- `api` : request/response POJOs for the GPT-3 engine, completion, and search APIs.
+- `client` : a basic retrofit client for the GPT-3 endpoints, includes the `api` module
+
+as well as an example project using the client.
+
+## Supported APIs
+- [Models](https://beta.openai.com/docs/api-reference/models)
+- [Completions](https://beta.openai.com/docs/api-reference/completions)
+- [Edits](https://beta.openai.com/docs/api-reference/edits)
+- [Embeddings](https://beta.openai.com/docs/api-reference/embeddings)
+- [Files](https://beta.openai.com/docs/api-reference/files)
+- [Fine-tunes](https://beta.openai.com/docs/api-reference/fine-tunes)
+- [Moderations](https://beta.openai.com/docs/api-reference/moderations)
+
+#### Deprecated by OpenAI
+- [Searches](https://beta.openai.com/docs/api-reference/searches)
+- [Classifications](https://beta.openai.com/docs/api-reference/classifications)
+- [Answers](https://beta.openai.com/docs/api-reference/answers)
+- [Engines](https://beta.openai.com/docs/api-reference/engines)
+
+## Usage
+
+### Importing into a gradle project
+`implementation 'com.theokanning.openai-gpt3-java:api:<version>'`  
+or   
+`implementation 'com.theokanning.openai-gpt3-java:client:<version>'`
+
+### Using OpenAiService
+If you're looking for the fastest solution, import the `client` and use [OpenAiService](client/src/main/java/com/theokanning/openai/OpenAiService.java).
 ```
-public static void main(String[] args) throws MalformedURLException {
-
-		//Create a RetsHttpClient (other constructors provide configuration i.e. timeout, gzip capability)
-		RetsHttpClient httpClient = new CommonsHttpClient();
-		RetsVersion retsVersion = RetsVersion.RETS_1_7_2;
-		String loginUrl = "http://theurloftheretsserver.com";
-
-		//Create a RetesSession with RetsHttpClient
-		RetsSession session = new RetsSession(loginUrl, httpClient, retsVersion);    
-
-		String username = "username";
-		String password = "password";
-
-		//Set method as GET or POST
-		session.setMethod("POST");
-		try {
-			//Login
-			session.login(username, password);
-		} catch (RetsException e) {
-			e.printStackTrace();
-		}
-
-		String sQuery = "(Member_num=.ANY.)";
-		String sResource = "Property";
-		String sClass = "Residential";
-
-		//Create a SearchRequest
-		SearchRequest request = new SearchRequest(sResource, sClass, sQuery);
-
-		//Select only available fields
-		String select ="field1,field2,field3,field4,field5";
-		request.setSelect(select);
-
-		//Set request to retrive count if desired
-		request.setCountFirst();
-
-		SearchResultImpl response;
-		try {
-			//Execute the search
-			response= (SearchResultImpl) session.search(request);
-
-			//Print out count and columns
-			int count = response.getCount();
-			System.out.println("COUNT: " + count);
-			System.out.println("COLUMNS: " + StringUtils.join(response.getColumns(), "\t"));
-
-			//Iterate over, print records
-			for (int row = 0; row < response.getRowCount(); row++){
-				System.out.println("ROW"+ row +": " + StringUtils.join(response.getRow(row), "\t"));
-			}
-		} catch (RetsException e) {
-			e.printStackTrace();
-		} 
-		finally {
-			if(session != null) { 
-				try {
-					session.logout(); 
-				} 
-				catch(RetsException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+OpenAiService service = new OpenAiService("your_token");
+CompletionRequest completionRequest = CompletionRequest.builder()
+        .prompt("Somebody once told me the world is gonna roll me")
+        .model("ada")
+        .echo(true)
+        .build();
+service.createCompletion(completionRequest).getChoices().forEach(System.out::println);
 ```
 
-Simple example making a GetObjectRequest:
+### Using OpenAiApi Retrofit client
+If you're using retrofit, you can import the `client` module and use the [OpenAiApi](client/src/main/java/com/theokanning/openai/OpenAiApi.java).  
+You'll have to add your auth token as a header (see [AuthenticationInterceptor](client/src/main/java/com/theokanning/openai/AuthenticationInterceptor.java))
+and set your converter factory to use snake case and only include non-null fields.
 
+### Using data classes only
+If you want to make your own client, just import the POJOs from the `api` module.  
+Your client will need to use snake case to work with the OpenAI API.
+
+## Running the example project
+All the [example](example/src/main/java/example/OpenAiApiExample.java) project requires is your OpenAI api token
 ```
-	public static void main(String[] args) throws MalformedURLException {
-
-		//Create a RetsHttpClient (other constructors provide configuration i.e. timeout, gzip capability)
-		RetsHttpClient httpClient = new CommonsHttpClient();
-		RetsVersion retsVersion = RetsVersion.RETS_1_7_2;
-		String loginUrl = "http://theurloftheretsserver.com";
-
-		//Create a RetesSession with RetsHttpClient
-		RetsSession	session = new RetsSession(loginUrl, httpClient, retsVersion);
-
-		String username = "username";
-		String password = "password";
-		try {
-			//Login
-			session.login(username, password);
-		} catch (RetsException e) {
-			e.printStackTrace();
-		}
-
-		String sResource = "Property";
-		String objType   = "Photo";
-		String seqNum 	= "*"; // * denotes get all pictures associated with id (from Rets Spec)
-		List<String> idsList = Arrays.asList("331988","152305","243374");
-		try {
-			//Create a GetObjectRequeset
-			GetObjectRequest req = new GetObjectRequest(sResource, objType);
-
-			//Add the list of ids to request on (ids can be determined from records)
-			Iterator<String> idsIter = idsList.iterator();
-			while(idsIter.hasNext()) {
-				req.addObject(idsIter.next(), seqNum);
-			}
-
-			//Execute the retrieval of objects 
-			Iterator<SingleObjectResponse> singleObjectResponseIter = session.getObject(req).iterator();
-
-			//Iterate over each Object 
-			while (singleObjectResponseIter.hasNext()) {
-				SingleObjectResponse sor = (SingleObjectResponse)singleObjectResponseIter.next();
-
-				//Retrieve in info and print
-				String type =			sor.getType();
-				String contentID = 		sor.getContentID();
-				String objectID = 		sor.getObjectID();
-				String description = 	sor.getDescription();
-				String location = 		sor.getLocation();
-				InputStream is = 		sor.getInputStream();
-
-				System.out.print("type:" + type);
-				System.out.print(" ,contentID:" + contentID);
-				System.out.print(" ,objectID:" + objectID);
-				System.out.println(" ,description:" + description);
-				System.out.println("location:" + location); 
-
-				//Download object
-				try {
-					String dest			= "/path/of/dowload/loaction";
-					int size = is.available();
-					String filename = dest + contentID +"-" + objectID + ".jpeg";
-					OutputStream out = new FileOutputStream(new File(filename)); 
-					int read = 0;
-					byte[] bytes = new byte[1024];
-
-					while ((read = is.read(bytes)) != -1) {
-
-						out.write(bytes, 0, read);
-					}
-
-					is.close();
-					out.flush();
-					out.close();
-
-					System.out.println("New file with size " + size + " created: " + filename);
-				} catch (IOException e) {
-					System.out.println(e.getMessage());
-				}
-
-			}
-
-		} catch (RetsException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if(session != null) {
-				try {
-					session.logout();
-				}
-				catch (RetsException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+export OPENAI_TOKEN="sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+./gradlew example:run
 ```
 
-Example of Geting Metadata:
+## Deprecated Endpoints
+OpenAI has deprecated engine-based endpoints in favor of model-based endpoints.
+For example, instead of using `v1/engines/{engine_id}/completions`, switch to `v1/completions` and specify the model in the `CompletionRequest`.
+The code includes upgrade instructions for all deprecated endpoints.
 
-```
-	public static void main(String[] args) throws MalformedURLException {
-
-		//Create a RetsHttpClient (other constructors provide configuration i.e. timeout, gzip capability)
-		RetsHttpClient httpClient = new CommonsHttpClient();
-		RetsVersion retsVersion = RetsVersion.RETS_1_7_2;
-		String loginUrl = "http://theurloftheretsserver.com";
-
-		//Create a RetesSession with RetsHttpClient
-		RetsSession session = new RetsSession(loginUrl, httpClient, retsVersion);    
-
-		String username = "username";
-		String password = "password";
-
-		//Set method as GET or POST
-		session.setMethod("POST");
-		try {
-			//Login
-			session.login(username, password);
-		} catch (RetsException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			MSystem system = session.getMetadata().getSystem();
-			System.out.println(
-					"SYSTEM: " + system.getSystemID() + 
-					" - " + system.getSystemDescription());
-
-			for(MResource resource: system.getMResources()) {
-
-				System.out.println(
-						"    RESOURCE: " + resource.getResourceID());
-
-				for(MClass classification: resource.getMClasses()) {
-					System.out.println(
-							"        CLASS: " + classification.getClassName() +
-							" - " + classification.getDescription());
-				}
-			}
-		}
-		catch (RetsException e) {
-			e.printStackTrace();
-		} 	
-		finally {
-			if(session != null) { 
-				try {
-					session.logout(); 
-				} 
-				catch(RetsException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}	
-```
+I won't remove the old endpoints from this library until OpenAI shuts them down.
 
 ## License
+Published under the MIT License
+## License
 
-[USRealEstate RETS Client is licensed under the MIT License](https://github.com/ossez-com/reoc-mls-client/blob/master/LICENSE)
+[OpenAI-J is licensed under the MIT License](https://github.com/honeymoose/openai-j/blob/main/LICENSE)
