@@ -1,9 +1,0 @@
-com\ossez\openai\ImageTest.class
-com\ossez\openai\FileTest.class
-com\ossez\openai\EngineTest.class
-com\ossez\openai\ModerationTest.class
-com\ossez\openai\EditTest.class
-com\ossez\openai\EmbeddingTest.class
-com\ossez\openai\FineTuneTest.class
-com\ossez\openai\CompletionTest.class
-com\ossez\openai\ModelTest.class

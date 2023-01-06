@@ -46,8 +46,8 @@
     </issueManagement>
 
     <modules>
-        <module>openai-j-api</module>
-        <module>openai-j-client</module>
+        <module>api</module>
+        <module>client</module>
     </modules>
 
     <properties>
