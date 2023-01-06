@@ -47,7 +47,7 @@
 
     <modules>
         <module>openai-j-api</module>
-        <!--        <module>openai-j-client</module>-->
+        <module>openai-j-client</module>
     </modules>
 
     <properties>

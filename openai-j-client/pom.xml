@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.ossez</groupId>
+        <groupId>com.ossez.openai</groupId>
         <artifactId>openai-j</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -48,11 +48,6 @@
         <system>JIRA</system>
         <url>http://bug.ossez.com/projects/USVisaTrack</url>
     </issueManagement>
-
-    <modules>
-        <module>openai-j-api</module>
-        <module>openai-j-client</module>
-    </modules>
 
     <properties>
         <!-- *.html files are in UTF-8, and *.properties are in iso-8859-1, so this configuration is actually incorrect, but this suppresses a warning
