@@ -7,9 +7,9 @@
       <option name="url" value="https://repo.ossez.com/repository/maven-snapshots/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="ossez-repo-releases" />
-      <option name="name" value="OSSEZ Private Releases" />
-      <option name="url" value="https://repo.ossez.com/repository/maven-releases/" />
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.ossez.com/repository/maven-public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="ossez-repo" />
@@ -17,9 +17,9 @@
       <option name="url" value="https://repo.ossez.com/repository/maven-snapshots/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.ossez.com/repository/maven-public/" />
+      <option name="id" value="ossez-repo-releases" />
+      <option name="name" value="OSSEZ Private Releases" />
+      <option name="url" value="https://repo.ossez.com/repository/maven-releases/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -30,6 +30,21 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ossrh-snapshots" />
+      <option name="name" value="OSSEZ Private Snapshots" />
+      <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ossrh-releases" />
+      <option name="name" value="ossrh Releases" />
+      <option name="url" value="https://repo.ossez.com/repository/maven-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ossrh" />
+      <option name="name" value="ossrh" />
+      <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
     </remote-repository>
   </component>
 </project>

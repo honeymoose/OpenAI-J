@@ -79,23 +79,22 @@
 
         <java.level>11</java.level>
 
-        <changelog.url>https://upcex.com/changelog</changelog.url>
     </properties>
 
     <!-- Note that the 'repositories' and 'pluginRepositories' blocks below are actually copy-pasted from the Jenkins org pom. This is on purpose
         to keep jenkins core buildable even if one has *not* defined the specific details in the settings.xml file. -->
     <repositories>
-        <repository>
-            <id>ossez-repo</id>
-            <name>Ossez-Repo-Snapshot</name>
-            <url>https://repo.ossez.com/repository/maven-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
+<!--        <repository>-->
+<!--            <id>ossez-repo</id>-->
+<!--            <name>Ossez-Repo-Snapshot</name>-->
+<!--            <url>https://repo.ossez.com/repository/maven-snapshots/</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--            <releases>-->
+<!--                <enabled>false</enabled>-->
+<!--            </releases>-->
+<!--        </repository>-->
     </repositories>
 
 
@@ -118,20 +117,16 @@
     </dependencyManagement>
 
     <distributionManagement>
-        <site>
-            <id>github-pages</id>
-            <url>gitsite:git@github.com/USRealEstate/Usreio-Docs.git:core</url>
-        </site>
 
-        <repository>
-            <id>ossez-repo</id>
-            <url>https://repo.ossez.com/repository/maven-releases/</url>
-        </repository>
+<!--        <repository>-->
+<!--            <id>ossez-repo</id>-->
+<!--            <url>https://repo.ossez.com/repository/maven-releases/</url>-->
+<!--        </repository>-->
 
-        <snapshotRepository>
-            <id>ossez-repo</id>
-            <url>https://repo.ossez.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
+<!--        <snapshotRepository>-->
+<!--            <id>ossrh</id>-->
+<!--            <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--        </snapshotRepository>-->
 
     </distributionManagement>
 
@@ -290,6 +285,12 @@
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>1.6.13</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -309,11 +310,6 @@
                     </configuration>
                 </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.4</version>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
@@ -451,15 +447,17 @@
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.3</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.kohsuke</groupId>
-                            <artifactId>doxia-module-markdown</artifactId>
-                            <version>1.0</version>
-                        </dependency>
-                    </dependencies>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.5</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
 
 
@@ -475,6 +473,36 @@
                     <release>11</release>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <source>11</source>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>

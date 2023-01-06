@@ -80,60 +80,6 @@
         <changelog.url>https://upcex.com/changelog</changelog.url>
     </properties>
 
-    <!-- Note that the 'repositories' and 'pluginRepositories' blocks below are actually copy-pasted from the Jenkins org pom. This is on purpose
-        to keep jenkins core buildable even if one has *not* defined the specific details in the settings.xml file. -->
-    <repositories>
-        <repository>
-            <id>ossez-repo</id>
-            <name>Ossez-Repo-Snapshot</name>
-            <url>https://repo.ossez.com/repository/maven-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
-
-
-    <pluginRepositories>
-    </pluginRepositories>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.samba.jcifs</groupId>
-                <artifactId>jcifs</artifactId>
-                <version>1.3.17-kohsuke-1</version>
-            </dependency>
-            <dependency>
-                <groupId>org.kohsuke</groupId>
-                <artifactId>access-modifier-annotation</artifactId>
-                <version>${access-modifier-annotation.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <distributionManagement>
-        <site>
-            <id>github-pages</id>
-            <url>gitsite:git@github.com/USRealEstate/Usreio-Docs.git:core</url>
-        </site>
-
-        <repository>
-            <id>ossez-repo</id>
-            <url>https://repo.ossez.com/repository/maven-releases/</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>ossez-repo</id>
-            <url>https://repo.ossez.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
-
-    </distributionManagement>
-
-
     <dependencies>
 
         <!-- LOGGING WITH SELF4J AND LOG4J2 -->
@@ -270,10 +216,6 @@
         </resources>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
