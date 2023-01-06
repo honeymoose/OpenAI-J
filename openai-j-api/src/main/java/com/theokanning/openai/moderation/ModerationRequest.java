@@ -1,6 +1,7 @@
 package com.theokanning.openai.moderation;
 
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * A request for OpenAi to detect if text violates OpenAi's content policy.

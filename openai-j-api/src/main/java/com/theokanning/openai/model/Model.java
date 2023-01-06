@@ -1,7 +1,5 @@
 package com.theokanning.openai.model;
 
-import lombok.Data;
-
 import java.util.List;
 
 /**
@@ -9,7 +7,7 @@ import java.util.List;
  *
  * https://beta.openai.com/docs/api-reference/models
  */
-@Data
+
 public class Model {
     /**
      * An identifier for this model, used to specify the model when making completions, etc

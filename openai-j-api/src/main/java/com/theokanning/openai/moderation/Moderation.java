@@ -1,13 +1,11 @@
 package com.theokanning.openai.moderation;
 
-import lombok.Data;
-
 /**
  * An object containing the moderation data for a single input string
  *
  * https://beta.openai.com/docs/api-reference/moderations/create
  */
-@Data
+
 public class Moderation {
     /**
      * Set to true if the model classifies the content as violating OpenAI's content policy, false otherwise

@@ -1,6 +1,7 @@
 package com.theokanning.openai.image;
 
-import lombok.*;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * A request for OpenAi to edit an image based on a prompt

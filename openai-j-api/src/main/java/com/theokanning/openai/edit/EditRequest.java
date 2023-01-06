@@ -1,6 +1,8 @@
 package com.theokanning.openai.edit;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 /**
  * Given a prompt and an instruction, OpenAi will return an edited version of the prompt
  *

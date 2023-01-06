@@ -1,14 +1,13 @@
 package com.theokanning.openai.moderation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
 /**
  * An object containing the scores for each moderation category
  *
  * https://beta.openai.com/docs/api-reference/moderations/create
  */
-@Data
+
 public class ModerationCategoryScores {
 
     public double hate;

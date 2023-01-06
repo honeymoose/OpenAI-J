@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ossez</groupId>
+    <groupId>com.ossez.openai</groupId>
     <artifactId>openai-j</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -47,7 +47,7 @@
 
     <modules>
         <module>openai-j-api</module>
-<!--        <module>openai-j-client</module>-->
+        <!--        <module>openai-j-client</module>-->
     </modules>
 
     <properties>
@@ -217,7 +217,6 @@
             <version>2.13.4</version>
         </dependency>
         <!-- /UTILITIES -->
-
 
 
         <!-- Date and Time -->

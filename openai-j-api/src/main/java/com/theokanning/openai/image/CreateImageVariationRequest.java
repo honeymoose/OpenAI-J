@@ -1,17 +1,12 @@
 package com.theokanning.openai.image;
 
-import lombok.*;
-
 /**
  * A request for OpenAi to create a variation of an image
  * All fields are optional
  *
  * https://beta.openai.com/docs/api-reference/images/create-variation
  */
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+
 public class CreateImageVariationRequest {
 
     /**

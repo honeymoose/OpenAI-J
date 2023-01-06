@@ -1,7 +1,5 @@
 package com.theokanning.openai.model;
 
-import lombok.Data;
-
 /**
  * GPT-3 model permissions
  * I couldn't find documentation for the specific permissions, and I've elected to leave them undocumented rather than
@@ -9,7 +7,7 @@ import lombok.Data;
  *
  * https://beta.openai.com/docs/api-reference/models
  */
-@Data
+
 public class Permission {
     /**
      * An identifier for this model permission

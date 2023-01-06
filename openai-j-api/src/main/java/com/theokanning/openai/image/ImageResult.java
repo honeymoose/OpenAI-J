@@ -1,6 +1,5 @@
 package com.theokanning.openai.image;
 
-import lombok.Data;
 
 import java.util.List;
 
@@ -9,7 +8,7 @@ import java.util.List;
  *
  * https://beta.openai.com/docs/api-reference/images
  */
-@Data
+
 public class ImageResult {
 
     /**

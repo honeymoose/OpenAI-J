@@ -1,6 +1,6 @@
 package com.theokanning.openai.image;
 
-import lombok.*;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * A request for OpenAi to create an image based on a prompt
@@ -8,10 +8,7 @@ import lombok.*;
  *
  * https://beta.openai.com/docs/api-reference/images/create
  */
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+
 public class CreateImageRequest {
 
     /**
