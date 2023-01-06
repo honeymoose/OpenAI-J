@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
 
 
-    <name>OpenAI Java Client</name>
+    <name>OpenAI J Client</name>
     <description>The module that constitutes the main USRealEstate data process system</description>
 
     <licenses>

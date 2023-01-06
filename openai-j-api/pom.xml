@@ -14,7 +14,7 @@
     </parent>
 
 
-    <name>openai-j-api</name>
+    <name>OpenAI J Api</name>
     <description>The module that constitutes the main USRealEstate data process system</description>
 
     <licenses>
