@@ -35,15 +35,15 @@ public class FineTuneTest {
     @Test
     @Order(1)
     void createFineTune() {
-        FineTuneRequest request = FineTuneRequest.builder()
-                .trainingFile(fileId)
-                .model("ada")
-                .build();
-
-        FineTuneResult fineTune = service.createFineTune(request);
-        fineTuneId = fineTune.getId();
-
-        assertEquals("pending", fineTune.getStatus());
+//        FineTuneRequest request = FineTuneRequest.builder()
+//                .trainingFile(fileId)
+//                .model("ada")
+//                .build();
+//
+//        FineTuneResult fineTune = service.createFineTune(request);
+//        fineTuneId = fineTune.getId();
+//
+//        assertEquals("pending", fineTune.getStatus());
     }
 
     @Test

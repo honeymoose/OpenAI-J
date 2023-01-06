@@ -2,6 +2,7 @@ package com.theokanning.openai;
 
 import com.theokanning.openai.embedding.Embedding;
 import com.theokanning.openai.embedding.EmbeddingRequest;
+import com.theokanning.openai.embedding.EmbeddingRequestBuilder;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -17,10 +18,10 @@ public class EmbeddingTest {
 
     @Test
     void createEmbeddings() {
-        EmbeddingRequest embeddingRequest = EmbeddingRequest.builder()
-                .model("text-similarity-babbage-001")
-                .input(Collections.singletonList("The food was delicious and the waiter..."))
-                .build();
+        EmbeddingRequest embeddingRequest = new EmbeddingRequestBuilder()
+                .setModel("text-similarity-babbage-001")
+                .setInput(Collections.singletonList("The food was delicious and the waiter..."))
+                .createEmbeddingRequest();
 
         List<Embedding> embeddings = service.createEmbeddings(embeddingRequest).getData();
 
@@ -30,9 +31,9 @@ public class EmbeddingTest {
 
     @Test
     void createEmbeddingsDeprecated() {
-        EmbeddingRequest embeddingRequest = EmbeddingRequest.builder()
-                .input(Collections.singletonList("The food was delicious and the waiter..."))
-                .build();
+        EmbeddingRequest embeddingRequest = new EmbeddingRequestBuilder()
+                .setInput(Collections.singletonList("The food was delicious and the waiter..."))
+                .createEmbeddingRequest();
 
         List<Embedding> embeddings = service.createEmbeddings("text-similarity-babbage-001", embeddingRequest).getData();
 

@@ -10,6 +10,14 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  */
 
 public class EditRequest {
+    public EditRequest(String model, String input, @NonNull String instruction, Integer n, Double temperature, Double topP) {
+        this.model = model;
+        this.input = input;
+        this.instruction = instruction;
+        this.n = n;
+        this.temperature = temperature;
+        this.topP = topP;
+    }
 
     /**
      * The name of the model to use.

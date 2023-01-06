@@ -1,0 +1,9 @@
+com\theokanning\openai\CompletionTest.class
+com\theokanning\openai\FileTest.class
+com\theokanning\openai\EditTest.class
+com\theokanning\openai\ImageTest.class
+com\theokanning\openai\ModelTest.class
+com\theokanning\openai\EngineTest.class
+com\theokanning\openai\EmbeddingTest.class
+com\theokanning\openai\FineTuneTest.class
+com\theokanning\openai\ModerationTest.class

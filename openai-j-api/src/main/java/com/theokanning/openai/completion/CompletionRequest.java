@@ -11,6 +11,23 @@ import java.util.Map;
  */
 
 public class CompletionRequest {
+    public CompletionRequest(String model, String prompt, Integer maxTokens, Double temperature, Double topP, Integer n, Boolean stream, Integer logprobs, Boolean echo, List<String> stop, Double presencePenalty, Double frequencyPenalty, Integer bestOf, Map<String, Integer> logitBias, String user) {
+        this.model = model;
+        this.prompt = prompt;
+        this.maxTokens = maxTokens;
+        this.temperature = temperature;
+        this.topP = topP;
+        this.n = n;
+        this.stream = stream;
+        this.logprobs = logprobs;
+        this.echo = echo;
+        this.stop = stop;
+        this.presencePenalty = presencePenalty;
+        this.frequencyPenalty = frequencyPenalty;
+        this.bestOf = bestOf;
+        this.logitBias = logitBias;
+        this.user = user;
+    }
 
     /**
      * The name of the model to use.

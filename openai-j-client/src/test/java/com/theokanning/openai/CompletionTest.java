@@ -2,6 +2,7 @@ package com.theokanning.openai;
 
 import com.theokanning.openai.completion.CompletionChoice;
 import com.theokanning.openai.completion.CompletionRequest;
+import com.theokanning.openai.completion.CompletionRequestBuilder;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -18,15 +19,15 @@ public class CompletionTest {
 
     @Test
     void createCompletion() {
-        CompletionRequest completionRequest = CompletionRequest.builder()
-                .model("ada")
-                .prompt("Somebody once told me the world is gonna roll me")
-                .echo(true)
-                .n(5)
-                .maxTokens(50)
-                .user("testing")
-                .logitBias(new HashMap<>())
-                .build();
+        CompletionRequest completionRequest = new CompletionRequestBuilder()
+                .setModel("ada")
+                .setPrompt("Somebody once told me the world is gonna roll me")
+                .setEcho(true)
+                .setN(5)
+                .setMaxTokens(50)
+                .setUser("testing")
+                .setLogitBias(new HashMap<>())
+                .createCompletionRequest();
 
         List<CompletionChoice> choices = service.createCompletion(completionRequest).getChoices();
         assertEquals(5, choices.size());
@@ -34,11 +35,11 @@ public class CompletionTest {
 
     @Test
     void createCompletionDeprecated() {
-        CompletionRequest completionRequest = CompletionRequest.builder()
-                .prompt("Somebody once told me the world is gonna roll me")
-                .echo(true)
-                .user("testing")
-                .build();
+        CompletionRequest completionRequest = new CompletionRequestBuilder()
+                .setPrompt("Somebody once told me the world is gonna roll me")
+                .setEcho(true)
+                .setUser("testing")
+                .createCompletionRequest();
 
         List<CompletionChoice> choices = service.createCompletion("ada", completionRequest).getChoices();
         assertFalse(choices.isEmpty());

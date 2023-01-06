@@ -1,6 +1,7 @@
 package com.theokanning.openai;
 
 import com.theokanning.openai.edit.EditRequest;
+import com.theokanning.openai.edit.EditRequestBuilder;
 import com.theokanning.openai.edit.EditResult;
 import org.junit.jupiter.api.Test;
 
@@ -13,11 +14,11 @@ public class EditTest {
 
     @Test
     void edit() {
-        EditRequest request = EditRequest.builder()
-                .model("text-davinci-edit-001")
-                .input("What day of the wek is it?")
-                .instruction("Fix the spelling mistakes")
-                .build();
+        EditRequest request = new EditRequestBuilder()
+                .setModel("text-davinci-edit-001")
+                .setInput("What day of the wek is it?")
+                .setInstruction("Fix the spelling mistakes")
+                .createEditRequest();
 
         EditResult result = service.createEdit( request);
 
@@ -26,10 +27,10 @@ public class EditTest {
 
     @Test
     void editDeprecated() {
-        EditRequest request = EditRequest.builder()
-                .input("What day of the wek is it?")
-                .instruction("Fix the spelling mistakes")
-                .build();
+        EditRequest request = new EditRequestBuilder()
+                .setInput("What day of the wek is it?")
+                .setInstruction("Fix the spelling mistakes")
+                .createEditRequest();
 
         EditResult result = service.createEdit("text-davinci-edit-001", request);
 

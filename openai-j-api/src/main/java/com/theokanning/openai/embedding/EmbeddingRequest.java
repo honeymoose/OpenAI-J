@@ -8,6 +8,11 @@ import java.util.List;
 
 
 public class EmbeddingRequest {
+    public EmbeddingRequest(String model, @NonNull List<String> input, String user) {
+        this.model = model;
+        this.input = input;
+        this.user = user;
+    }
 
     /**
      * The name of the model to use.
