@@ -16,14 +16,47 @@ We forked this API from:  https://github.com/TheoKanning/openai-java/.
 The major reason we rebuild this API was OpenAI-JAVA include lombok, we think it is better build this in plain java
 code.
 
+# 联系方式
+
+请使用下面的联系方式和我们联系。
+
+* [社区和讨论](https://www.ossez.com/tag/chat-gpt)
+
+| 联系方式名称           | 联系方式                                          |
+|------------------|-----------------------------------------------|
+| 电子邮件（Email）      | [yhu@ossez.com](mailto:yhu@ossez.com)         |
+| QQ 或微信（WeChat）   | 103899765                                     |
+| QQ 交流群           | 15186112                                      |
+| 社区论坛 （Community） | https://www.ossez.com/c/computer-technology/7 |
+
+# 公众平台
+
+我们建议您通过社区论坛来和我们进行沟通，请关注我们公众平台上的账号
+
+## 微信公众号
+
+![](https://cdn.ossez.com/img/sharkfly/sharkfly-qr-wechat-search-w400.png)
+
+## 头条号
+
+我们也在头条号上创建了我们的公众号，请扫描下面的 QR 关注我们的头条号。
+
+![](https://cdn.ossez.com/img/cwikius/cwikus-qr-toutiao.png)
+
+## 知乎
+
+请关注我们的知乎：https://www.zhihu.com/people/huyuchengus
+
 # Deprecated OpenAI API Endpoint
 
-The [Answers](https://help.openai.com/en/articles/6233728-answers-transition-guide),
-[Classifications](https://help.openai.com/en/articles/6272941-classifications-transition-guide),
-and [Searches](https://help.openai.com/en/articles/6272952-search-transition-guide) APIs are deprecated, and will stop
-working on December 3rd, 2022.
+* [Answers](https://help.openai.com/en/articles/6233728-answers-transition-guide),
+* [Classifications](https://help.openai.com/en/articles/6272941-classifications-transition-guide),
+* [Searches](https://help.openai.com/en/articles/6272952-search-transition-guide) 
+ 
+APIs are deprecated, and will stop working on December 3rd, 2022.
 
 ️OpenAI has deprecated all Engine-based APIs.
+
 See [Deprecated Endpoints](https://github.com/TheoKanning/openai-java#deprecated-endpoints) below for more info.
 
 # How To Use
@@ -108,36 +141,6 @@ I won't remove the old endpoints from this library until OpenAI shuts them down.
 - [Answers](https://beta.openai.com/docs/api-reference/answers)
 - [Engines](https://beta.openai.com/docs/api-reference/engines)
 
-# 联系方式
-
-请使用下面的联系方式和我们联系。
-
-* [社区和讨论](https://www.ossez.com/tag/chat-gpt)
-
-| 联系方式名称           | 联系方式                                          |
-|------------------|-----------------------------------------------|
-| 电子邮件（Email）      | [yhu@ossez.com](mailto:yhu@ossez.com)         |
-| QQ 或微信（WeChat）   | 103899765                                     |
-| QQ 交流群           | 15186112                                      |
-| 社区论坛 （Community） | https://www.ossez.com/c/computer-technology/7 |
-
-# 公众平台
-
-我们建议您通过社区论坛来和我们进行沟通，请关注我们公众平台上的账号
-
-## 微信公众号
-
-![](https://cdn.ossez.com/img/cwikius/cwikius-qr-wechat-search-w400.png)
-
-## 头条号
-
-我们也在头条号上创建了我们的公众号，请扫描下面的 QR 关注我们的头条号。
-
-![](https://cdn.ossez.com/img/cwikius/cwikus-qr-toutiao.png)
-
-## 知乎
-
-请关注我们的知乎：https://www.zhihu.com/people/huyuchengus
 
 # License
 

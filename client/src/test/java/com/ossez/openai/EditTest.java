@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class EditTest {
 
-    String token = System.getenv("OPENAI_TOKEN");
+    String token = "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";
     OpenAiService service = new OpenAiService(token);
 
     @Test
@@ -21,6 +21,7 @@ public class EditTest {
                 .createEditRequest();
 
         EditResult result = service.createEdit( request);
+        System.out.println(result.getChoices().get(0).getText());
 
         assertNotNull(result.getChoices().get(0).getText());
     }

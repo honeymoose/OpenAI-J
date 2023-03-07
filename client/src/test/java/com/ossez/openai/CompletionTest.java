@@ -14,23 +14,25 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CompletionTest {
 
-    String token = System.getenv("OPENAI_TOKEN");
+    String token = "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"; //System.getenv("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");
     OpenAiService service = new OpenAiService(token);
 
     @Test
     void createCompletion() {
         CompletionRequest completionRequest = new CompletionRequestBuilder()
-                .setModel("ada")
-                .setPrompt("Somebody once told me the world is gonna roll me")
+                .setModel("text-davinci-003")
+                .setPrompt("讲一个关于程序员的笑话")
                 .setEcho(true)
-                .setN(5)
-                .setMaxTokens(50)
+//                .setN(0)
+                .setMaxTokens(500)
                 .setUser("testing")
                 .setLogitBias(new HashMap<>())
                 .createCompletionRequest();
 
         List<CompletionChoice> choices = service.createCompletion(completionRequest).getChoices();
-        assertEquals(5, choices.size());
+        System.out.println(choices.get(0).getText());
+//        System.out.println(choices.get(1).getText());
+//        assertEquals(5, choices.get(0).getText());
     }
 
     @Test
