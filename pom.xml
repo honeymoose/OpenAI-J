@@ -7,7 +7,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-
     <name>OpenAI Java</name>
     <description>The module that constitutes the main USRealEstate data process system</description>
 
@@ -33,13 +32,12 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/USRealEstate/Usreio-Parent.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/USRealEstate/Usreio-Parent.git</developerConnection>
-        <url>https://github.com/USRealEstate</url>
+        <connection>scm:git:git://github.com/honeymoose/OpenAI-J.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/honeymoose/OpenAI-J.git</developerConnection>
+        <url>https://github.com/honeymoose/OpenAI-J</url>
         <tag>HEAD</tag>
     </scm>
-
-
+    
     <issueManagement>
         <system>JIRA</system>
         <url>http://bug.ossez.com/projects/USVisaTrack</url>
@@ -85,17 +83,17 @@
     <!-- Note that the 'repositories' and 'pluginRepositories' blocks below are actually copy-pasted from the Jenkins org pom. This is on purpose
         to keep jenkins core buildable even if one has *not* defined the specific details in the settings.xml file. -->
     <repositories>
-<!--        <repository>-->
-<!--            <id>ossez-repo</id>-->
-<!--            <name>Ossez-Repo-Snapshot</name>-->
-<!--            <url>https://repo.ossez.com/repository/maven-snapshots/</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--            <releases>-->
-<!--                <enabled>false</enabled>-->
-<!--            </releases>-->
-<!--        </repository>-->
+        <!--        <repository>-->
+        <!--            <id>ossez-repo</id>-->
+        <!--            <name>Ossez-Repo-Snapshot</name>-->
+        <!--            <url>https://repo.ossez.com/repository/maven-snapshots/</url>-->
+        <!--            <snapshots>-->
+        <!--                <enabled>true</enabled>-->
+        <!--            </snapshots>-->
+        <!--            <releases>-->
+        <!--                <enabled>false</enabled>-->
+        <!--            </releases>-->
+        <!--        </repository>-->
     </repositories>
 
 
@@ -119,15 +117,15 @@
 
     <distributionManagement>
 
-<!--        <repository>-->
-<!--            <id>ossez-repo</id>-->
-<!--            <url>https://repo.ossez.com/repository/maven-releases/</url>-->
-<!--        </repository>-->
+        <!--        <repository>-->
+        <!--            <id>ossez-repo</id>-->
+        <!--            <url>https://repo.ossez.com/repository/maven-releases/</url>-->
+        <!--        </repository>-->
 
-<!--        <snapshotRepository>-->
-<!--            <id>ossrh</id>-->
-<!--            <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
-<!--        </snapshotRepository>-->
+        <!--        <snapshotRepository>-->
+        <!--            <id>ossrh</id>-->
+        <!--            <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+        <!--        </snapshotRepository>-->
 
     </distributionManagement>
 
@@ -183,12 +181,6 @@
             <version>1.10.0</version>
         </dependency>
         <!-- / APACHE COMMONS -->
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.10.19</version>
-        </dependency>
 
         <dependency>
             <groupId>org.powermock</groupId>
@@ -250,6 +242,21 @@
             <artifactId>assertj-core</artifactId>
             <version>3.23.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.10.19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>1.6.2</version>
         </dependency>
         <!--/ TEST -->
 
