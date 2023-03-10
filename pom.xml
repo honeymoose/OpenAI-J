@@ -37,10 +37,10 @@
         <url>https://github.com/honeymoose/OpenAI-J</url>
         <tag>HEAD</tag>
     </scm>
-    
+
     <issueManagement>
         <system>JIRA</system>
-        <url>http://bug.ossez.com/projects/USVisaTrack</url>
+        <url>https://bug.ossez.com/projects/OSS</url>
     </issueManagement>
 
     <modules>
