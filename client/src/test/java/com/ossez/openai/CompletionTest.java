@@ -8,13 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 public class CompletionTest {
 
-    String token = "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"; //System.getenv("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");
+    String token = System.getenv("OPENAI_TOKEN");
     OpenAiService service = new OpenAiService(token);
 
     @Test

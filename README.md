@@ -22,12 +22,12 @@ code.
 
 * [社区和讨论](https://www.ossez.com/tag/chat-gpt)
 
-| 联系方式名称           | 联系方式                                          |
-|------------------|-----------------------------------------------|
-| 电子邮件（Email）      | [yhu@ossez.com](mailto:yhu@ossez.com)         |
-| QQ 或微信（WeChat）   | 103899765                                     |
-| QQ 交流群           | 15186112                                      |
-| 社区论坛 （Community） | https://www.ossez.com/c/computer-technology/7 |
+| 联系方式名称           | 联系方式                                  |
+|------------------|---------------------------------------|
+| 电子邮件（Email）      | [yhu@ossez.com](mailto:yhu@ossez.com) |
+| QQ 或微信（WeChat）   | 103899765                             |
+| QQ 交流群           | 15186112                              |
+| 社区论坛 （Community） | https://www.ossez.com/tag/chat-gpt    |
 
 # 公众平台
 
@@ -36,6 +36,12 @@ code.
 ## 微信公众号
 
 ![](https://cdn.ossez.com/img/sharkfly/sharkfly-qr-wechat-search-w400.png)
+
+关注公众号以后，可以通过向这个公众号发送消息来测试 ChatGPT 的微信消息集成功能。
+
+<img src="https://cdn.ossez.com/discourse-uploads/original/2X/5/5f1cf67c4349029be682a30268df06d77202d510.png"  width="600">
+
+有关更多 ChatGPT 的讨论，请访问我们的 [ChatGPT 社区](https://www.ossez.com/tag/chat-gpt)。
 
 ## 头条号
 

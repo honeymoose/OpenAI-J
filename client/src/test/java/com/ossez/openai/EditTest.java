@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class EditTest {
-
-    String token = "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";
+    String token = System.getenv("OPENAI_TOKEN");
     OpenAiService service = new OpenAiService(token);
 
     @Test
