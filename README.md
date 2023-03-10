@@ -112,12 +112,12 @@ Your client will need to use snake case to work with the OpenAI API.
 
 ## Running the example project
 
-All the [example](example/src/main/java/example/OpenAiApiExample.java) project requires is your OpenAI api token
+There is an [example](https://github.com/honeymoose/OpenAI-J/blob/main/example/src/main/java/com/ossez/openai/example/OpenAiApiExample.java) project 
+with a OpenAiApiExample file contain main function to run.
 
-```
-export OPENAI_TOKEN="sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-./gradlew example:run
-```
+Also, you can run all tests by JUnit too.
+
+[OpenAI-J 如何进行测试](https://www.ossez.com/t/openai-j/14338)
 
 ## Deprecated Endpoints
 
