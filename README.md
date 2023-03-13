@@ -4,7 +4,7 @@
     <a href="https://github.com/honeymoose">
         <img height=85 src="https://avatars1.githubusercontent.com/u/45009982?s=200&v=4">
     </a>
-    <br>This project builds by JDK 11 and OpenJ9 for JVM.
+    <br>This project builds by JDK 17 and OpenJ9 for JVM.
 </p>
 
 * [社区和讨论 (community)](https://www.ossez.com/tag/chat-gpt)

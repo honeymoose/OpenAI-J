@@ -50,8 +50,7 @@
     </modules>
 
     <properties>
-        <!-- *.html files are in UTF-8, and *.properties are in iso-8859-1, so this configuration is actually incorrect, but this suppresses a warning
-            from Maven, and as long as we don't do filtering we should be OK. -->
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <build.type>private</build.type>
 
@@ -63,7 +62,6 @@
         <patch.tracker.serverId>jenkins-jira</patch.tracker.serverId>
 
         <slf4j.version>1.7.25</slf4j.version>
-        <log4j.version>2.8.2</log4j.version>
         <maven-plugin.version>2.14</maven-plugin.version>
         <matrix-project.version>1.4.1</matrix-project.version>
         <sorcerer.version>0.11</sorcerer.version>
@@ -75,9 +73,6 @@
         </access-modifier-annotation.version> <!-- differing only where needed for timestamped snapshots -->
         <access-modifier-checker.version>${access-modifier.version}</access-modifier-checker.version>
         <junit-jupiter.version>5.9.0</junit-jupiter.version>
-
-        <java.level>11</java.level>
-
     </properties>
 
     <!-- Note that the 'repositories' and 'pluginRepositories' blocks below are actually copy-pasted from the Jenkins org pom. This is on purpose
@@ -131,7 +126,6 @@
 
 
     <dependencies>
-
         <!-- LOGGING WITH SELF4J AND LOG4J2 -->
         <dependency>
             <groupId>org.slf4j</groupId>

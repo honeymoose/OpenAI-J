@@ -6,13 +6,11 @@
     <artifactId>openai-j-api</artifactId>
     <packaging>jar</packaging>
 
-
     <parent>
         <groupId>com.ossez.openai</groupId>
         <artifactId>openai-j</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
 
     <name>OpenAI J Api</name>
     <description>The module that constitutes the main USRealEstate data process system</description>
@@ -73,10 +71,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-
-
     </build>
-
     <profiles>
     </profiles>
 </project>
