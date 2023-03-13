@@ -128,7 +128,7 @@ The code includes upgrade instructions for all deprecated endpoints.
 
 I won't remove the old endpoints from this library until OpenAI shuts them down.
 
-#FAQ
+# FAQ （常见问题）
 
 ## Supported APIs
 
@@ -148,6 +148,6 @@ I won't remove the old endpoints from this library until OpenAI shuts them down.
 - [Engines](https://beta.openai.com/docs/api-reference/engines)
 
 
-# License
+# License（许可证）
 
 [OpenAI-J is licensed under the MIT License](https://github.com/honeymoose/openai-j/blob/main/LICENSE)
