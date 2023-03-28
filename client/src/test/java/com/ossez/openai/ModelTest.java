@@ -16,7 +16,6 @@ public class ModelTest {
     @Test
     void listModels() {
         List<Model> models = service.listModels();
-
         assertFalse(models.isEmpty());
     }
 
